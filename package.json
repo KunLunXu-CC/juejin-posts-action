@@ -5,6 +5,7 @@
   "main": "lib/index.js",
   "type": "module",
   "scripts": {
+    "test": "node ./src/index.js",
     "build": "ncc build src/index.js --minify --out lib",
     "cz": "npm run build && klx-cz",
     "release": "klx-release",

@@ -37,3 +37,20 @@ jobs:
           default_author: github_actions
           message: 'juejin-posts'
 ```
+
+## 本地开发
+
+1. 安装依赖
+
+```sh
+npm i
+```
+
+2. 执行 test 脚本
+
+```sh
+npm run test
+```
+
+3. 执行结果: 执行 `npm run test` 后将在上文注入目录
+

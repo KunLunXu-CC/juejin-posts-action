@@ -21,7 +21,7 @@ try {
   core.info('3. Waiting 生成 html ...');
   const reduceText = [...dom.window.document.querySelectorAll('.detail-list .post-list-box .entry-list .entry')]
     .reduce((total, ele) => {
-      const data = ele.querySelector('.meta-container .date')?.textContent;
+      const data = ele.querySelector('.content-wrapper .date')?.textContent?.replace(/\s*/ig, '');
       const link = ele.querySelector('.content-wrapper .title-row a.title');
       return `${total}\n<li>[${data}] <a href="https://juejin.cn${link?.getAttribute('href')}">${link?.textContent}</a></li>`;
     }, '');
