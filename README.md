@@ -54,3 +54,12 @@ npm run test
 
 3. 执行结果: 执行 `npm run test` 后将在上文注入目录
 
+4. 编译
+
+```sh
+npm run build
+```
+
+5. 修改版本号
+
+6. 提交代码
