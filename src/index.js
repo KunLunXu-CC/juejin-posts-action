@@ -26,6 +26,11 @@ try {
       return `${total}\n<li>[${data}] <a href="https://juejin.cn${link?.getAttribute('href')}">${link?.textContent}</a></li>`;
     }, '');
 
+  if (!reduceText.trim()) {
+    core.info('4. Waiting 没有数据 ...');
+    throw new Error('没有数据');
+  }
+
   const appendHtml = `\n<ul>${reduceText}\n</ul>\n`;
 
   core.info(`4. 修改 README, 在 <!-- posts start --> 和 <!-- posts end --> 中间插入生成的 html: \n ${appendHtml}`);
