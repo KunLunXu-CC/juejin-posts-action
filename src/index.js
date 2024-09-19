@@ -13,12 +13,16 @@ const url = `https://juejin.cn/user/${USER_ID}/posts`;
 
 try {
   core.info(`1. Waiting 拉取页面 => ${url} ...`);
-  const { stdout: body } = await exec(`curl ${url}`);
+  await exec(`wget ${url}`);
 
-  core.info(`2. Waiting 解析 HTML => \n ${body}`);
-  const dom = await new JSDOM(body, {
-    runScripts: 'dangerously', // 在页面内启用脚本
-  });
+  const html = fs.readFileSync('./posts', 'utf-8');
+
+  // throw new Error('test');
+
+  // const { stdout: body } = await exec(`curl ${url}`);
+
+  core.info(`2. Waiting 解析 HTML => \n ${html}`);
+  const dom = await new JSDOM(html);
 
   core.info('3. Waiting 生成 html ...');
   const reduceText = [...dom.window.document.querySelectorAll('.detail-list .post-list-box .entry-list .entry')]

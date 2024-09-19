@@ -1,6 +1,6 @@
 {
   "name": "juejin-posts-action",
-  "version": "1.3.2",
+  "version": "1.3.3",
   "description": "Render Juejin Posts in Readme",
   "main": "lib/index.js",
   "type": "module",
