@@ -8,6 +8,7 @@ import { JSDOM } from 'jsdom';
 const exec = util.promisify(childProcess.exec);
 
 // 读取参数: 掘金用户 ID
+const tmpHtmlFileName = 'posts';
 const USER_ID = core.getInput('user_id') || '4459274891717223';
 const url = `https://juejin.cn/user/${USER_ID}/posts`;
 
@@ -15,7 +16,7 @@ try {
   core.info(`1. Waiting 拉取页面 => ${url} ...`);
   await exec(`wget ${url}`);
 
-  const html = fs.readFileSync('./posts', 'utf-8');
+  const html = fs.readFileSync(`./${tmpHtmlFileName}`, 'utf-8');
 
   // throw new Error('test');
 
@@ -48,6 +49,8 @@ try {
   } else {
     core.info('4. 没有数据, End');
   }
+
+  fs.unlinkSync(`./${tmpHtmlFileName}`); // 删除临时文件
 } catch (error) {
   core.setFailed(error);
 }
