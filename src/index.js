@@ -50,6 +50,7 @@ try {
     core.info('4. 没有数据, End');
   }
 
+  core.info('[END] 删除临时文件');
   fs.unlinkSync(`./${tmpHtmlFileName}`); // 删除临时文件
 } catch (error) {
   core.setFailed(error);
