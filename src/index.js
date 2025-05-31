@@ -50,8 +50,8 @@ try {
     core.info('4. 没有数据, End');
   }
 
-  core.info('[END] 删除临时文件');
-  fs.unlinkSync(`./${tmpHtmlFileName}`); // 删除临时文件
+  core.info('[END] 文件备份起来');
+  await exec(`mv ${tmpHtmlFileName} backups.html`); // 文件备份起来, 方便排查文件
 } catch (error) {
   core.setFailed(error);
 }
